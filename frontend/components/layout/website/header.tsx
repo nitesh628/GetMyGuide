@@ -47,9 +47,9 @@ export function Header() {
   const navigationItems = [
     { href: "/", labelKey: "nav_home", icon: Home },
     { href: "/about", labelKey: "nav_about", icon: Info },
-    { href: "/tours", labelKey: "nav_tours", icon: MapPin },
-    { href: "/find-guides", labelKey: "nav_find_guides", icon: Users2 },
-    { href: "/guides", labelKey: "nav_become_guide", icon: Users },
+    { href: "/services", labelKey: "nav_tours", icon: MapPin },
+    { href: "/register-tourist", labelKey: "nav_find_guides", icon: Users2 },
+    { href: "/register-guide", labelKey: "nav_become_guide", icon: Users },
     { href: "/how-it-works", labelKey: "nav_how_it_works", icon: HelpCircle },
     { href: "/contact", labelKey: "nav_contact", icon: Mail },
     { href: "/blogs", labelKey: "nav_blog", icon: Mail },

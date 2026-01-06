@@ -21,7 +21,7 @@ export function Footer() {
   const navigationLinks = [
     { key: "nav_home", href: "/" },
     { key: "nav_about", href: "/about" },
-    { key: "nav_tours", href: "/tours" },
+    { key: "nav_tours", href: "/services" },
     { key: "nav_find_guides", href: "/find-guides" },
     { key: "nav_become_guide", href: "/guides" },
     { key: "nav_contact", href: "/contact" },
