@@ -19,7 +19,13 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const pathname = usePathname();
   const [initialized, setInitialized] = useState(false);
 
-  const publicRoutes = ["/", "/login", "/register", "/about", "/contact"];
+  const publicRoutes = [
+    "/",
+    "/login",
+    "/register",
+    "/about",
+    "/contact",
+  ];
   const isPublicRoute = publicRoutes.some(
     (route) => pathname === route || pathname.startsWith("/public")
   );

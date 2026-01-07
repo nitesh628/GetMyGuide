@@ -7,7 +7,7 @@ import { Suspense } from "react";
 import "./globals.css";
 import { ReduxProvider } from "@/lib/provider";
 import ToastProvider from "@/lib/ToastProvider";
-import  {LanguageProvider}  from "@/contexts/LanguageContext"; 
+import { LanguageProvider } from "@/contexts/LanguageContext";
 export const metadata: Metadata = {
   title: "BookMyTourGuide",
   description:

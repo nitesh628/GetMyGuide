@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useCart } from "@/contexts/CardContext";
+// import { useCart } from "@/contexts/CartContext";
 import {
   Lock,
   Check,

@@ -65,8 +65,8 @@ export default function TourCard({
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        {/* Circular Card */}
-        <div className="w-80 h-80 rounded-full overflow-hidden shadow-2xl transition-all duration-500 transform hover:scale-105 hover:shadow-3xl border-4 border-white">
+        {/* Rectangular Card */}
+        <div className="w-70 h-70 rounded-lg overflow-hidden shadow-2xl transition-all duration-500 transform hover:scale-105 hover:shadow-3xl border-4 border-white">
           {/* Background Image */}
           <div
             className="w-full h-full relative bg-cover bg-center transition-transform duration-700"
@@ -102,7 +102,7 @@ export default function TourCard({
               {/* View More Button */}
               <button
                 onClick={() => setShowModal(true)}
-                className="mx-auto px-6 py-2 bg-white/20 backdrop-blur-md border-2 border-white/50 rounded-full text-white font-semibold text-sm hover:bg-white/30 hover:scale-105 transition-all duration-300 shadow-lg"
+                className="mx-auto px-3 py-1 bg-white/20 backdrop-blur-md border-2 border-white/50 rounded-full text-white font-semibold text-xs hover:bg-white/30 hover:scale-105 transition-all duration-300 shadow-lg"
               >
                 View More
               </button>
@@ -116,12 +116,6 @@ export default function TourCard({
             )}
           </div>
         </div>
-
-        {/* Decorative Ring */}
-        <div
-          className="absolute inset-0 rounded-full border-2 border-dashed border-slate-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-spin-slow pointer-events-none"
-          style={{ animation: "spin 20s linear infinite" }}
-        />
       </div>
 
       {showModal && (

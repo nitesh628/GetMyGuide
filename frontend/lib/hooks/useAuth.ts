@@ -32,39 +32,48 @@ export const useAuth = () => {
     (state: RootState) => state.auth
   );
 
-  const login = useCallback(async (credentials: LoginRequest) => {
-    const result = await dispatch(loginUser(credentials));
-    if (loginUser.fulfilled.match(result)) {
-      const role = result.payload.data?.role ?? "user";
-      showToast.success(
-        `Welcome back, ${result.payload.data?.name || "User"}!`
-      );
-      router.push(ROLE_ROUTES[role] ?? "/dashboard");
-    } else {
-      showToast.error((result.payload as string) || "Login failed");
-    }
-    return result;
-  }, [dispatch, router]);
+  const login = useCallback(
+    async (credentials: LoginRequest) => {
+      const result = await dispatch(loginUser(credentials));
+      if (loginUser.fulfilled.match(result)) {
+        const role = result.payload.data?.role ?? "user";
+        showToast.success(
+          `Welcome back, ${result.payload.data?.name || "User"}!`
+        );
+        router.push(ROLE_ROUTES[role] ?? "/dashboard");
+      } else {
+        showToast.error((result.payload as string) || "Login failed");
+      }
+      return result;
+    },
+    [dispatch, router]
+  );
 
-  const sendOtp = useCallback(async (data: OTPRequest) => {
-    const result = await dispatch(sendOTP(data));
-    if (sendOTP.fulfilled.match(result)) {
-      showToast.success("OTP sent successfully to your email!");
-    } else {
-      showToast.error((result.payload as string) || "Failed to send OTP");
-    }
-    return result;
-  }, [dispatch]);
+  const sendOtp = useCallback(
+    async (data: OTPRequest) => {
+      const result = await dispatch(sendOTP(data));
+      if (sendOTP.fulfilled.match(result)) {
+        showToast.success("OTP sent successfully to your email!");
+      } else {
+        showToast.error((result.payload as string) || "Failed to send OTP");
+      }
+      return result;
+    },
+    [dispatch]
+  );
 
-  const verifyAndRegister = useCallback(async (formData: FormData) => {
-    const result = await dispatch(verifyOtpAndRegister(formData));
-    if (verifyOtpAndRegister.fulfilled.match(result)) {
-      showToast.success("Registration successful! Please login to continue.");
-    } else {
-      showToast.error((result.payload as string) || "Registration failed");
-    }
-    return result;
-  }, [dispatch]);
+  const verifyAndRegister = useCallback(
+    async (formData: FormData) => {
+      const result = await dispatch(verifyOtpAndRegister(formData));
+      if (verifyOtpAndRegister.fulfilled.match(result)) {
+        showToast.success("Registration successful! Please login to continue.");
+      } else {
+        showToast.error((result.payload as string) || "Registration failed");
+      }
+      return result;
+    },
+    [dispatch]
+  );
 
   const fetchCurrentUser = useCallback(async () => {
     // This function should only fetch the user, not handle redirects.

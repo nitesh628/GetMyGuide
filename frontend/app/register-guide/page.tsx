@@ -218,15 +218,18 @@ export default function BecomeGuidePage() {
         {/* Main Form Card */}
         <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
           {/* Decorative top border */}
-          <div className="h-2 bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-600"></div>
+          <div className="h-2 bg-gradient-to-r from-indigo-400 via-orange-500 to-pink-600"></div>
 
           <div className="p-8 md:p-12">
             <form className="space-y-10" onSubmit={handleSubmit}>
               {/* Profile Section */}
               <div className="relative">
-                <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-indigo-400 to-purple-600 rounded-full"></div>
+                <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-orange-400 to-orange-600 rounded-full"></div>
+                <h1 className="text-2xl mb-1.5 font-serif font-extrabold ">
+                  Guide Registration Form
+                </h1>
                 <h2 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center gap-3">
-                  <span className="flex items-center justify-center w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 text-sm font-bold">
+                  <span className="flex items-center justify-center w-10 h-10 rounded-full bg-orange-100 text-orange-600 text-sm font-bold">
                     1
                   </span>
                   Personal Information
@@ -236,7 +239,7 @@ export default function BecomeGuidePage() {
                   <div className="flex flex-col md:flex-row items-center gap-8">
                     {/* Profile Image Upload */}
                     <div className="relative group">
-                      <div className="w-40 h-40 rounded-full bg-gradient-to-br from-indigo-400 to-purple-600 shadow-xl overflow-hidden flex items-center justify-center border-4 border-white transition-transform duration-300 group-hover:scale-105">
+                      <div className="w-40 h-40 rounded-full bg-gradient-to-br from-white-400 to-grey-600 shadow-xl overflow-hidden flex items-center justify-center border-4 border-white transition-transform duration-300 group-hover:scale-105">
                         {profilePreview ? (
                           <img
                             src={profilePreview}
@@ -488,14 +491,16 @@ export default function BecomeGuidePage() {
                       <select
                         value={guideType}
                         onChange={(e) =>
-                          setGuideType(e.target.value as "Escort" | "Normal" | "")
+                          setGuideType(
+                            e.target.value as "Escort" | "Normal" | ""
+                          )
                         }
                         className="w-full border-2 border-gray-200 rounded-xl pl-4 pr-10 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 appearance-none"
                         aria-label="Guide Type"
                       >
-                        <option value="">Select Guide Type</option>
-                        <option value="Escort">Escort</option>
-                        <option value="Normal">Normal</option>
+                        {/* <option value="">Select Guide Type</option> */}
+                        <option value="Escort">Escort Guide</option>
+                        <option value="Normal">Normal Guide</option>
                       </select>
                       <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
                         <svg

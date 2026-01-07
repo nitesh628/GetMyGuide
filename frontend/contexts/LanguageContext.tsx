@@ -59,6 +59,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
           nav_about: "About",
           nav_tours: "Services",
           nav_find_guides: "Book a Certified Guide",
+          // nav_all_guides : "Guides Available",
           nav_become_guide: "Register Certified Guide",
           nav_how_it_works: "How it Works",
           nav_contact: "Contact",
@@ -74,32 +75,32 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
 
           // Hero Carousel
           hero_title_taj:
-            "We are dedicated aspire the life of tourguide in India",
+            "We are Committed to Boosting Tourism in India Through www.getmyguide.com",
           hero_subtitle_taj:
             "Experience the epitome of Mughal architecture with expert guides",
           hero_category_taj: "Heritage Tours",
           hero_title_rajasthan:
-            "We are dedicated aspire the life of tourguide in India",
+            "We are Committed to Boosting Tourism in India Through www.getmyguide.com",
           hero_subtitle_rajasthan:
             "Wander through the majestic forts and palaces of Jaisalmer",
           hero_category_rajasthan: "Desert Adventures",
           hero_title_kerala:
-            "We are dedicated aspire the life of tourguide in India",
+            "We are Committed to Boosting Tourism in India Through www.getmyguide.com",
           hero_subtitle_kerala:
             "Cruise through serene waters and lush green landscapes",
           hero_category_kerala: "Nature & Wildlife",
           hero_title_varanasi:
-            "We are dedicated aspire the life of tourguide in India",
+            "We are Committed to Boosting Tourism in India Through www.getmyguide.com",
           hero_subtitle_varanasi:
             "Witness ancient rituals along the sacred Ganges River",
           hero_category_varanasi: "Spiritual Tours",
           hero_title_himalayas:
-            "We are dedicated aspire the life of tourguide in India",
+            "We are Committed to Boosting Tourism in India Through www.getmyguide.com",
           hero_subtitle_himalayas:
             "Adventure through breathtaking mountain landscapes",
           hero_category_himalayas: "Adventure Tours",
           hero_title_goa:
-            "We are dedicated aspire the life of tourguide in India",
+            "We are Committed to Boosting Tourism in India Through www.getmyguide.com",
           hero_subtitle_goa:
             "Discover pristine beaches and vibrant Portuguese heritage",
           hero_category_goa: "Beach & Culture",
