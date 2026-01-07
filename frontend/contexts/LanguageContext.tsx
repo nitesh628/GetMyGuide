@@ -2,11 +2,11 @@
 
 import {
   createContext,
+  useCallback,
   useContext,
-  useState,
   useEffect,
   useMemo,
-  useCallback,
+  useState,
   type ReactNode,
 } from "react";
 
@@ -61,6 +61,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
           nav_find_guides: "Book a Certified Guide",
           // nav_all_guides : "Guides Available",
           nav_become_guide: "Register Certified Guide",
+          nav_guide_availability: "Guide Availability",
           nav_how_it_works: "How it Works",
           nav_contact: "Contact",
           nav_blog: "Blog",

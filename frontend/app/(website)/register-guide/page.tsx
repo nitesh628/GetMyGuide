@@ -213,7 +213,7 @@ export default function BecomeGuidePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 py-12 px-4 sm:px-6 lg:px-8 mt-20">
       <div className="max-w-5xl mx-auto">
         {/* Main Form Card */}
         <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">

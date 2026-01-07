@@ -20,6 +20,7 @@ import {
   Settings,
   Users2,
   Search,
+  Shield,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -50,11 +51,12 @@ export function Header() {
     { href: "/services", labelKey: "nav_tours", icon: MapPin },
     { href: "/register-tourist", labelKey: "nav_find_guides", icon: Users2 },
     { href: "/register-guide", labelKey: "nav_become_guide", icon: Users },
+    { href: "/guide-availability", labelKey: "nav_guide_availability", icon: Shield },
     { href: "/how-it-works", labelKey: "nav_how_it_works", icon: HelpCircle },
-    { href: "/contact", labelKey: "nav_contact", icon: Mail },
-    { href: "/blogs", labelKey: "nav_blog", icon: Mail },
+    { href: '/contact', labelKey: 'nav_contact', icon: Mail },
+    { href: '/blogs', labelKey: 'nav_blog', icon: Mail },
   ];
-
+  
   useEffect(() => {
     if (!isAuthenticated) {
       fetchCurrentUser();

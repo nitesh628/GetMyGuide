@@ -1,17 +1,14 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 import {
+  Globe,
+  Instagram,
+  Mail,
   MapPin,
   Phone,
-  Mail,
-  Facebook,
-  Twitter,
-  Instagram,
-  Youtube,
-  Globe,
+  Youtube
 } from "lucide-react";
-import { useLanguage } from "@/contexts/LanguageContext";
 import Link from "next/link"; // Link component ko import karein
 
 export function Footer() {
@@ -24,6 +21,7 @@ export function Footer() {
     { key: "nav_tours", href: "/services" },
     { key: "nav_find_guides", href: "/find-guides" },
     { key: "nav_become_guide", href: "/guides" },
+    { key: "nav_guide_availability", href: "/guide-availability" },
     { key: "nav_contact", href: "/contact" },
   ];
 
