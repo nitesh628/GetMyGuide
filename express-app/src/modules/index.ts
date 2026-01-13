@@ -1,5 +1,6 @@
 import express from 'express';
 import BlogRoute from './blog/blog.route';
+import BookingRoute from './booking/booking.route';
 import GuideRoute from './guide/guide.route';
 import PackageRoute from './package/package.route';
 import SessionRoute from './session/session.route';
@@ -13,6 +14,7 @@ const router = express.Router();
 
 router.use('/session', SessionRoute);
 router.use('/blog', BlogRoute);
+router.use('/booking', BookingRoute);
 router.use('/guide', GuideRoute);
 router.use('/package', PackageRoute);
 

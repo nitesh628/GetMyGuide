@@ -2,6 +2,8 @@ import { RESEND_API_KEY } from '@config/const';
 import { error as logError } from 'node-be-utilities';
 import { Resend } from 'resend';
 import {
+	BookingAllocatedGuideTemplate,
+	BookingAllocatedTouristTemplate,
 	GuideCredentialsTemplate,
 	PasswordResetTemplate,
 	PaymentLinkTemplate,
@@ -83,6 +85,79 @@ export async function sendPaymentLinkEmail(to: string, name: string, paymentLink
 
 	if (error) {
 		logError('Resend Error: Error Sending payment link email', error);
+		return false;
+	}
+	return true;
+}
+
+interface BookingDetails {
+	tourist_info: {
+		name: string;
+		gender: string;
+		phone: string;
+		email: string;
+		country: string;
+	};
+	travel_details: {
+		places: string[];
+		city: string;
+		date: Date | string;
+		no_of_person: number;
+		preferences: {
+			hotel: boolean;
+			taxi: boolean;
+		};
+	};
+	guide_preferences: {
+		guide_language: string[];
+		gender: string;
+	};
+	booking_configuration: {
+		duration: string;
+		foreign_language_required: boolean;
+		outstation?: {
+			distance: number;
+			over_night_stay: number;
+			accomodation_meals: boolean;
+			special_excursion: string[];
+		};
+		early_late_hours: boolean;
+		extra_city_allowances: boolean;
+		special_event_allowances: string[];
+		price: number;
+	};
+	guide_info?: {
+		name: string;
+		email: string;
+		phone: string;
+	};
+}
+
+export async function sendBookingAllocatedTouristEmail(to: string, bookingDetails: BookingDetails) {
+	const { error } = await resend.emails.send({
+		from: 'ABC <info@abc.com>',
+		to: [to],
+		subject: 'Guide Allocated to Your Booking - Get My Guide',
+		html: BookingAllocatedTouristTemplate(bookingDetails),
+	});
+
+	if (error) {
+		logError('Resend Error: Error Sending booking allocated email to tourist', error);
+		return false;
+	}
+	return true;
+}
+
+export async function sendBookingAllocatedGuideEmail(to: string, bookingDetails: BookingDetails) {
+	const { error } = await resend.emails.send({
+		from: 'ABC <info@abc.com>',
+		to: [to],
+		subject: 'New Booking Allocated to You - Get My Guide',
+		html: BookingAllocatedGuideTemplate(bookingDetails),
+	});
+
+	if (error) {
+		logError('Resend Error: Error Sending booking allocated email to guide', error);
 		return false;
 	}
 	return true;
