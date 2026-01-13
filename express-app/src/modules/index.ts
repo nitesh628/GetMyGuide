@@ -1,0 +1,48 @@
+import express from 'express';
+import SessionRoute from './session/session.route';
+
+import { NotFoundError, Respond, RespondFile, ServerError } from 'node-be-utilities';
+import { FileUpload, ONLY_MEDIA_ALLOWED, SingleFileUploadOptions } from '../utils/files';
+
+const router = express.Router();
+
+// Next routes will be webhooks routes
+
+router.use('/session', SessionRoute);
+
+router.post('/upload-media', async function (req, res, next) {
+	const fileUploadOptions: SingleFileUploadOptions = {
+		field_name: 'file',
+		options: {
+			fileFilter: ONLY_MEDIA_ALLOWED,
+		},
+	};
+
+	try {
+		const uploadedFile = await FileUpload.SingleFileUpload(req, res, fileUploadOptions);
+		return Respond({
+			res,
+			status: 200,
+			data: {
+				name: uploadedFile.filename,
+			},
+		});
+	} catch {
+		return next(new ServerError('File upload failed'));
+	}
+});
+
+router.get('/media/:path/:filename', async function (req, res, next) {
+	try {
+		const path = __basedir + '/static/' + req.params.path + '/' + req.params.filename;
+		return RespondFile({
+			res,
+			filename: req.params.filename,
+			filepath: path,
+		});
+	} catch {
+		return next(new NotFoundError('File not found'));
+	}
+});
+
+export default router;
