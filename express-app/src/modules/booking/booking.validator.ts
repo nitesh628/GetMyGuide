@@ -63,17 +63,14 @@ export async function CreateBookingValidator(req: Request, res: Response, next: 
 				},
 				z.number().min(0, 'Overnight stay must be a non-negative number')
 			),
-			accomodation_meals: z.preprocess(
-				(val) => {
-					if (typeof val === 'string') {
-						if (val === 'true') return true;
-						if (val === 'false') return false;
-						return val;
-					}
+			accomodation_meals: z.preprocess((val) => {
+				if (typeof val === 'string') {
+					if (val === 'true') return true;
+					if (val === 'false') return false;
 					return val;
-				},
-				z.boolean()
-			),
+				}
+				return val;
+			}, z.boolean()),
 			special_excursion: z
 				.preprocess((val) => {
 					if (typeof val === 'string') {
@@ -136,28 +133,22 @@ export async function CreateBookingValidator(req: Request, res: Response, next: 
 				z.number().min(1, 'Number of persons must be at least 1')
 			),
 			preferences: z.object({
-				hotel: z.preprocess(
-					(val) => {
-						if (typeof val === 'string') {
-							if (val === 'true') return true;
-							if (val === 'false') return false;
-							return val;
-						}
+				hotel: z.preprocess((val) => {
+					if (typeof val === 'string') {
+						if (val === 'true') return true;
+						if (val === 'false') return false;
 						return val;
-					},
-					z.boolean()
-				),
-				taxi: z.preprocess(
-					(val) => {
-						if (typeof val === 'string') {
-							if (val === 'true') return true;
-							if (val === 'false') return false;
-							return val;
-						}
+					}
+					return val;
+				}, z.boolean()),
+				taxi: z.preprocess((val) => {
+					if (typeof val === 'string') {
+						if (val === 'true') return true;
+						if (val === 'false') return false;
 						return val;
-					},
-					z.boolean()
-				),
+					}
+					return val;
+				}, z.boolean()),
 			}),
 		}),
 		guide_preferences: z.object({
@@ -182,40 +173,31 @@ export async function CreateBookingValidator(req: Request, res: Response, next: 
 			duration: z.enum(['half-day', 'full-day'], {
 				message: 'Duration must be half-day or full-day',
 			}),
-			foreign_language_required: z.preprocess(
-				(val) => {
-					if (typeof val === 'string') {
-						if (val === 'true') return true;
-						if (val === 'false') return false;
-						return val;
-					}
+			foreign_language_required: z.preprocess((val) => {
+				if (typeof val === 'string') {
+					if (val === 'true') return true;
+					if (val === 'false') return false;
 					return val;
-				},
-				z.boolean()
-			),
+				}
+				return val;
+			}, z.boolean()),
 			outstation: outstationSchema,
-			early_late_hours: z.preprocess(
-				(val) => {
-					if (typeof val === 'string') {
-						if (val === 'true') return true;
-						if (val === 'false') return false;
-						return val;
-					}
+			early_late_hours: z.preprocess((val) => {
+				if (typeof val === 'string') {
+					if (val === 'true') return true;
+					if (val === 'false') return false;
 					return val;
-				},
-				z.boolean()
-			),
-			extra_city_allowances: z.preprocess(
-				(val) => {
-					if (typeof val === 'string') {
-						if (val === 'true') return true;
-						if (val === 'false') return false;
-						return val;
-					}
+				}
+				return val;
+			}, z.boolean()),
+			extra_city_allowances: z.preprocess((val) => {
+				if (typeof val === 'string') {
+					if (val === 'true') return true;
+					if (val === 'false') return false;
 					return val;
-				},
-				z.boolean()
-			),
+				}
+				return val;
+			}, z.boolean()),
 			special_event_allowances: z
 				.preprocess((val) => {
 					if (typeof val === 'string') {
@@ -278,4 +260,3 @@ export async function AllocateGuideValidator(req: Request, res: Response, next: 
 
 	return next(new BadRequestError(message));
 }
-

@@ -151,7 +151,7 @@ async function updatePackage(req: Request, res: Response, next: NextFunction) {
 				const oldImagePath = path.join(packagesDir, oldImage);
 				try {
 					await fs.unlink(oldImagePath);
-				} catch (err) {
+				} catch {
 					// Ignore errors if file doesn't exist
 				}
 			}
@@ -191,7 +191,7 @@ async function deletePackage(req: Request, res: Response, next: NextFunction) {
 			const imagePath = path.join(packagesDir, image);
 			try {
 				await fs.unlink(imagePath);
-			} catch (err) {
+			} catch {
 				// Ignore errors if file doesn't exist
 			}
 		}

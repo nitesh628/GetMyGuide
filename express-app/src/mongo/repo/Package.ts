@@ -66,4 +66,3 @@ const PackageSchema = new mongoose.Schema<IPackage>(
 const PackageDB = mongoose.model<IPackage>('Package', PackageSchema);
 
 export default PackageDB;
-

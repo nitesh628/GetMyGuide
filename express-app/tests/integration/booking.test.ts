@@ -22,10 +22,7 @@ jest.mock('@provider/email', () => ({
 	sendBookingAllocatedGuideEmail: jest.fn().mockResolvedValue(true),
 }));
 
-import {
-	sendBookingAllocatedGuideEmail,
-	sendBookingAllocatedTouristEmail,
-} from '@provider/email';
+import { sendBookingAllocatedGuideEmail, sendBookingAllocatedTouristEmail } from '@provider/email';
 import TransactionService from '@services/transaction';
 
 describe('Booking API Integration Tests', () => {
@@ -590,4 +587,3 @@ describe('Booking API Integration Tests', () => {
 		});
 	});
 });
-

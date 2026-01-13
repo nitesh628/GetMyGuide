@@ -9,9 +9,16 @@ const router = express.Router();
 // Tourist routes
 router
 	.route('/customised-booking')
-	.post(VerifySession, VerifyMinLevel('tourist'), CreateBookingValidator, Controller.createCustomisedBooking);
+	.post(
+		VerifySession,
+		VerifyMinLevel('tourist'),
+		CreateBookingValidator,
+		Controller.createCustomisedBooking
+	);
 
-router.route('/my-bookings').get(VerifySession, VerifyMinLevel('tourist'), Controller.getMyBookings);
+router
+	.route('/my-bookings')
+	.get(VerifySession, VerifyMinLevel('tourist'), Controller.getMyBookings);
 
 // Admin routes
 router.route('/').get(VerifySession, VerifyMinLevel('admin'), Controller.getAllBookings);
@@ -37,4 +44,3 @@ router
 	.get(VerifySession, IDValidator, Controller.getTransactionStatus);
 
 export default router;
-

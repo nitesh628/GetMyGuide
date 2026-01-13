@@ -50,4 +50,3 @@ router
 	);
 
 export default router;
-

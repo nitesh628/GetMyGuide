@@ -16,4 +16,3 @@ export default interface IPackage extends Document {
 	createdAt: Date;
 	updatedAt: Date;
 }
-

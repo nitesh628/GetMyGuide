@@ -160,4 +160,3 @@ const BookingSchema = new mongoose.Schema<IBooking>(
 const BookingDB = mongoose.model<IBooking>('Booking', BookingSchema);
 
 export default BookingDB;
-

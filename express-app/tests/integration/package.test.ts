@@ -54,7 +54,7 @@ describe('Package API Integration Tests', () => {
 				files.forEach((file) => {
 					try {
 						fs.unlinkSync(path.join(dir, file));
-					} catch (error) {
+					} catch {
 						// Ignore errors during cleanup
 					}
 				});

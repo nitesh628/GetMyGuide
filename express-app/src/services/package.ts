@@ -92,7 +92,10 @@ class PackageService {
 	 * @param filters - Optional filters for status, featured, and city
 	 * @param isAdmin - If true, returns all packages regardless of status filter
 	 */
-	async getPackages(filters: GetPackagesFilters = {}, isAdmin: boolean = false): Promise<TransformedPackage[]> {
+	async getPackages(
+		filters: GetPackagesFilters = {},
+		isAdmin: boolean = false
+	): Promise<TransformedPackage[]> {
 		const query: any = {};
 
 		// If not admin, only show active packages
@@ -120,7 +123,10 @@ class PackageService {
 	 * @param packageId - Package ID
 	 * @param isAdmin - If true, returns package regardless of status
 	 */
-	async getPackageById(packageId: Types.ObjectId, isAdmin: boolean = false): Promise<TransformedPackage> {
+	async getPackageById(
+		packageId: Types.ObjectId,
+		isAdmin: boolean = false
+	): Promise<TransformedPackage> {
 		const pkg = await PackageDB.findById(packageId).lean();
 
 		if (!pkg) {
@@ -138,8 +144,14 @@ class PackageService {
 	/**
 	 * Update a package
 	 */
-	async updatePackage(packageId: Types.ObjectId, data: UpdatePackageData): Promise<TransformedPackage> {
-		const pkg = await PackageDB.findByIdAndUpdate(packageId, data, { new: true, runValidators: true }).lean();
+	async updatePackage(
+		packageId: Types.ObjectId,
+		data: UpdatePackageData
+	): Promise<TransformedPackage> {
+		const pkg = await PackageDB.findByIdAndUpdate(packageId, data, {
+			new: true,
+			runValidators: true,
+		}).lean();
 
 		if (!pkg) {
 			throw new NotFoundError('Package not found');
@@ -162,8 +174,15 @@ class PackageService {
 	/**
 	 * Update package status
 	 */
-	async updatePackageStatus(packageId: Types.ObjectId, status: 'inactive' | 'active'): Promise<TransformedPackage> {
-		const pkg = await PackageDB.findByIdAndUpdate(packageId, { status }, { new: true, runValidators: true }).lean();
+	async updatePackageStatus(
+		packageId: Types.ObjectId,
+		status: 'inactive' | 'active'
+	): Promise<TransformedPackage> {
+		const pkg = await PackageDB.findByIdAndUpdate(
+			packageId,
+			{ status },
+			{ new: true, runValidators: true }
+		).lean();
 
 		if (!pkg) {
 			throw new NotFoundError('Package not found');
@@ -183,4 +202,3 @@ class PackageService {
 }
 
 export default new PackageService();
-
