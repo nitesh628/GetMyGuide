@@ -1,4 +1,6 @@
 import express from 'express';
+import BlogRoute from './blog/blog.route';
+import GuideRoute from './guide/guide.route';
 import SessionRoute from './session/session.route';
 
 import { NotFoundError, Respond, RespondFile, ServerError } from 'node-be-utilities';
@@ -9,6 +11,8 @@ const router = express.Router();
 // Next routes will be webhooks routes
 
 router.use('/session', SessionRoute);
+router.use('/blog', BlogRoute);
+router.use('/guide', GuideRoute);
 
 router.post('/upload-media', async function (req, res, next) {
 	const fileUploadOptions: SingleFileUploadOptions = {

@@ -18,10 +18,10 @@ declare global {
 export type IDType = Types.ObjectId;
 
 export interface LocalVariables {
-	query: any;
-	data: any;
-	id: IDType;
-	user: JWTPayload;
+	query?: any;
+	data?: any;
+	id?: IDType;
+	user?: JWTPayload;
 }
 
 export type { JWTPayload } from '../services/jwt';

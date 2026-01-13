@@ -1,2 +1,5 @@
 export { default as AuthService } from './auth';
+export { default as BlogService } from './blog';
+export { default as GuideService } from './guide';
 export { default as JWTService } from './jwt';
+export { default as TransactionService } from './transaction';

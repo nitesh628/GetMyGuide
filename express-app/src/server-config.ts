@@ -97,4 +97,5 @@ export default function (app: Express) {
 
 function createDir() {
 	fs.mkdirSync(__basedir + Path.Misc, { recursive: true });
+	fs.mkdirSync(__basedir + Path.Blogs, { recursive: true });
 }

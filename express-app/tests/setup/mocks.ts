@@ -2,6 +2,8 @@
 jest.mock('@provider/email', () => ({
 	sendPasswordResetEmail: jest.fn().mockResolvedValue(true),
 	sendWelcomeEmail: jest.fn().mockResolvedValue(true),
+	sendGuideCredentialsEmail: jest.fn().mockResolvedValue(true),
+	sendPaymentLinkEmail: jest.fn().mockResolvedValue(true),
 }));
 
 export {};
