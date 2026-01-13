@@ -1,2 +1,2 @@
 export { default as IDValidator } from './idValidator';
-export { VerifyMinLevel, default as VerifySession } from './VerifySession';
+export { VerifyMinLevel, VerifySessionOptional, default as VerifySession } from './VerifySession';

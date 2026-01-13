@@ -35,6 +35,39 @@ export default function VerifySession(req: Request, res: Response, next: NextFun
 }
 
 /**
+ * Optional middleware to verify JWT token if present
+ * Attaches user info to req.locals.user if valid token is found
+ * Does not throw errors if token is missing (for public routes with optional auth)
+ */
+export function VerifySessionOptional(req: Request, res: Response, next: NextFunction) {
+	// Extract token from Authorization header (Bearer token)
+	let token: string | undefined;
+
+	const authHeader = req.headers.authorization;
+	if (authHeader && authHeader.startsWith('Bearer ')) {
+		token = authHeader.substring(7);
+	} else if (req.cookies && req.cookies['auth-cookie']) {
+		// Fallback to cookie if Authorization header is not present
+		token = req.cookies['auth-cookie'];
+	}
+
+	// If no token, just continue without setting user
+	if (!token) {
+		return next();
+	}
+
+	// Verify token if present
+	const payload = JWTService.verifyToken(token);
+	if (payload) {
+		// Attach user info to request locals if token is valid
+		req.locals.user = payload;
+	}
+
+	// Continue regardless of whether token was valid or not
+	next();
+}
+
+/**
  * Middleware factory to verify minimum user level/role
  * @param minRole - Minimum role required ('tourist', 'guide', or 'admin')
  */
